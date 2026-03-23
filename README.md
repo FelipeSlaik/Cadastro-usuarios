@@ -1,16 +1,58 @@
-# React + Vite
+🚀 Formulário de Cadastro com React
+Este projeto é um formulário de cadastro desenvolvido com React, com foco em aprender e aplicar conceitos fundamentais da biblioteca.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🧠 Objetivo
+Praticar:
 
-Currently, two official plugins are available:
+Manipulação de estado com useState
+Inputs controlados
+Captura de eventos com onChange
+Envio de formulário com onSubmit
+Validação de campos
+Limpeza de formulário após envio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+🛠️ Tecnologias utilizadas
+React
+JavaScript
+HTML
+CSS (opcional/Tailwind se você usar depois)
 
-## React Compiler
+📋 Funcionalidades
+Campo de nome, email e senha
+Validação para impedir envio com campos vazios
+Exibição de dados no console
+Limpeza automática dos campos após envio
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚙️ Como funciona
+O usuário preenche os campos
 
-## Expanding the ESLint configuration
+Ao clicar em "Enviar" ou pressionar Enter:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O formulário é interceptado (preventDefault)
+Os dados são validados
+Se houver campos vazios → exibe alerta
+Se estiver tudo correto → exibe no console e limpa os inputs
+
+📚 Conceitos aplicados
+const [valor, setValor] = useState("")
+valor: estado atual
+setValor: função para atualizar o estado
+
+🧪 Exemplo de validação
+if (nomeDigitado === "" || emailDigitado === "" || senha === "") {
+  alert("Preencha todos os campos")
+}
+
+📌 Melhorias futuras
+Mostrar mensagens de erro na tela (em vez de alert)
+Validação mais avançada de email
+Estilização com Tailwind
+Integração com backend
+Armazenamento com localStorage
+
+💻 Como rodar o projeto
+npm install
+npm run dev
+
+✍️ Autor
+Desenvolvido por Felipe Santos 🚀
