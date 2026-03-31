@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../supabase";
+import { useNavigate } from "react-router-dom"
 import Modal from "../components/modal";
 
 function Cadastro() {
@@ -8,6 +9,7 @@ function Cadastro() {
   const [senha, setSenha] = useState("");
   const [mensagemErro, setMensagemErro] = useState("");
   const [mostrarModal, setMostrarModal] = useState(false);
+  const navigate = useNavigate();
 
   async function cadastro(e) {
     e.preventDefault();
@@ -96,7 +98,9 @@ function Cadastro() {
       <Modal 
         aberto={mostrarModal}
         mensagem= "Usuário cadastrado com sucesso!"
-        onClose={() => setMostrarModal(false)}
+        onClose={() => {setMostrarModal(false);
+          navigate("/login")
+        }}
       />
     </div>
   );
