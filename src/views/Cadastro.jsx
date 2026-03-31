@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { supabase } from "../supabase";
+import Modal from "../components/modal";
 
 function Cadastro() {
   const [nomeDigitado, setNomeDigitado] = useState("");
   const [emailDigitado, setEmailDigitado] = useState("");
   const [senha, setSenha] = useState("");
   const [mensagemErro, setMensagemErro] = useState("");
+  const [mostrarModal, setMostrarModal] = useState(false);
 
   async function cadastro(e) {
     e.preventDefault();
@@ -21,7 +23,6 @@ function Cadastro() {
       return;
     } else {
       setMensagemErro("");
-      console.log(nomeDigitado, emailDigitado, senha);
 
       await salvarUsuario();
     }
@@ -39,7 +40,7 @@ function Cadastro() {
       console.log(error);
       setMensagemErro("Erro ao salvar no banco");
     } else {
-      console.log("Usuario salvo com sucesso");
+      setMostrarModal(true);
 
       setNomeDigitado("");
       setEmailDigitado("");
@@ -51,7 +52,7 @@ function Cadastro() {
     <div className="w-full  min-h-screen flex justify-center items-center bg-gray-100">
       <form
         onSubmit={cadastro}
-        className="flex flex-col gap-4 bg-lime-600 p-6 rounded-2xl w-80 h"
+        className="flex flex-col gap-4 bg-lime-600 p-6 rounded-2xl w-80"
       >
         <input
           className="p-2 rounded-lg border border-lime-900 focus:outline-none focus:ring-2 focus:ring-lime-500 font-medium"
@@ -91,6 +92,12 @@ function Cadastro() {
           Enviar
         </button>
       </form>
+
+      <Modal 
+        aberto={mostrarModal}
+        mensagem= "Usuário cadastrado com sucesso!"
+        onClose={() => setMostrarModal(false)}
+      />
     </div>
   );
 }

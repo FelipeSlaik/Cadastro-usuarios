@@ -1,4 +1,4 @@
-import Cadastro from './components/Cadastro'
+import Cadastro from './views/Cadastro'
 function App() {
   return (
    <Cadastro />
